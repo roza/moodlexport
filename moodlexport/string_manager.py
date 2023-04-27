@@ -131,7 +131,7 @@ def filename_protect(string): # removes forbidden/annoying characters in filenam
     return unescape(string, UNESCAPE_FILENAME)
     
 def html(string):
-    if string is "":
+    if string == "":
         return string
     else:
         content = tex_parse_dollar(latex_protect(string))

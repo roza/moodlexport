@@ -277,13 +277,13 @@ class Question():
 
 # Here we define automatically methods to assign values to Question fields
 for key in dict_default_question_moodle().keys():
-    if key is not "answer": #  could be misinterpreted with Question.dict["answer"]
+    if key != "answer": #  could be misinterpreted with Question.dict["answer"]
         setattr(Question, strtools.alias(key), lambda self, value, key=key: self._set(key, value))
         setattr(Question, key, lambda self, value, key=key: self._set(key, value))
 
 # Here we define automatically methods to get values from Question fields
 for key in dict_default_question_moodle().keys():
-    if key is not "answer": #  could be misinterpreted with Question.dict["answer"]
+    if key != "answer": #  could be misinterpreted with Question.dict["answer"]
         setattr(Question, "get_"+strtools.alias(key), lambda self, key=key: self.structure[key]['value'] )
         setattr(Question, "get_"+key, lambda self, key=key: self.structure[key]['value'] )
 
